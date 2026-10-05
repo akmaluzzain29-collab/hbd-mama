@@ -4,43 +4,33 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
     font-family: Georgia, serif;
-
     background: #fff8f0;
-
     color: #4a3028;
-
     overflow-x: hidden;
 }
 
 
-/* =================================
+/* =========================
    OPENING
-================================= */
+========================= */
 
-.opening {
-
+#opening {
     position: fixed;
-
     inset: 0;
 
     width: 100%;
     height: 100vh;
-
     height: 100dvh;
 
     display: flex;
-
-    justify-content: center;
-
     align-items: center;
+    justify-content: center;
 
     text-align: center;
 
@@ -52,95 +42,57 @@ body {
             #fff8f0 100%
         );
 
-    z-index: 1000;
-
-    overflow: hidden;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-
+    z-index: 99999;
 }
-
-
-.opening.opened {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-}
-
 
 .opening-content {
-
     width: 100%;
-
     padding: 30px;
-
 }
 
-
-.opening-small {
-
+.opening-title {
     font-family: Arial, sans-serif;
-
     font-size: 11px;
-
     letter-spacing: 5px;
-
     color: #a8755c;
 
     margin-bottom: 40px;
-
 }
 
 
-/* =================================
-   HATI
-================================= */
+/* =========================
+   TOMBOL HATI
+========================= */
 
-.heart-button {
+#heartButton {
+    appearance: none;
+    -webkit-appearance: none;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
+
+    width: 140px;
+    height: 140px;
 
     margin: 0 auto;
 
-    width: 130px;
+    padding: 0;
 
-    height: 130px;
-
-    border: none;
-
-    outline: none;
+    border: 0;
+    outline: 0;
 
     background: transparent;
 
-    padding: 0;
-
-    font-size: 76px;
-
+    font-size: 78px;
     line-height: 1;
 
     cursor: pointer;
 
-    user-select: none;
-
-    -webkit-user-select: none;
+    position: relative;
+    z-index: 100000;
 
     -webkit-tap-highlight-color: transparent;
-
-    touch-action: manipulation;
-
-    position: relative;
-
-    z-index: 1001;
 
     filter:
         drop-shadow(
@@ -152,25 +104,15 @@ body {
         heartBeat 1.8s
         ease-in-out
         infinite;
-
 }
 
-
-.heart-button:hover {
-
-    animation: none;
-
+#heartButton:hover {
     transform: scale(1.08);
-
 }
 
-
-.heart-button:active {
-
-    transform: scale(0.92);
-
+#heartButton:active {
+    transform: scale(0.9);
 }
-
 
 @keyframes heartBeat {
 
@@ -185,15 +127,8 @@ body {
 
 }
 
-
-/* =================================
-   TEXT BAWAH HATI
-================================= */
-
-.click-text {
-
+.opening-hint {
     font-family: Arial, sans-serif;
-
     font-size: 13px;
 
     color: #9b7567;
@@ -201,65 +136,31 @@ body {
     margin-top: 28px;
 
     letter-spacing: 1px;
-
 }
 
 
-/* =================================
-   MAIN CONTENT
-================================= */
+/* =========================
+   MAIN
+========================= */
 
-.main-content {
-
-    display: none;
-
+#mainContent[hidden] {
+    display: none !important;
 }
 
 
-.main-content.visible {
-
-    display: block;
-
-    animation:
-        contentAppear 1.2s
-        ease forwards;
-
-}
-
-
-@keyframes contentAppear {
-
-    from {
-
-        opacity: 0;
-
-    }
-
-    to {
-
-        opacity: 1;
-
-    }
-
-}
-
-
-/* =================================
-   MESSAGE
-================================= */
+/* =========================
+   PESAN
+========================= */
 
 .message {
 
     min-height: 100vh;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    padding:
-        100px 20px;
+    padding: 100px 20px;
 
     background:
         linear-gradient(
@@ -267,26 +168,21 @@ body {
             #fff8f0,
             #fff1e8
         );
-
 }
-
 
 .message-box {
 
     width: 100%;
-
     max-width: 720px;
 
-    padding:
-        65px 55px;
+    padding: 65px 55px;
 
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.92
-        );
+    background: rgba(
+        255,
+        255,
+        255,
+        0.92
+    );
 
     border-radius: 30px;
 
@@ -302,36 +198,26 @@ body {
         );
 
     animation:
-        messageAppear 1.2s
-        ease;
-
+        messageAppear 1s ease;
 }
-
 
 @keyframes messageAppear {
 
     from {
-
         opacity: 0;
-
         transform:
-            translateY(50px)
-            scale(0.96);
-
+            translateY(40px)
+            scale(0.97);
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateY(0)
             scale(1);
-
     }
 
 }
-
 
 .small-text {
 
@@ -344,9 +230,7 @@ body {
     color: #a8755c;
 
     margin-bottom: 20px;
-
 }
-
 
 .message h1 {
 
@@ -357,9 +241,7 @@ body {
     color: #7b4938;
 
     margin-bottom: 40px;
-
 }
-
 
 .message-text p {
 
@@ -372,9 +254,7 @@ body {
     color: #66514a;
 
     margin-bottom: 22px;
-
 }
-
 
 .closing {
 
@@ -385,28 +265,24 @@ body {
     color: #a15c4b !important;
 
     margin-top: 35px;
-
 }
 
 
-/* =================================
-   MEMORY INTRO
-================================= */
+/* =========================
+   KENANGAN
+========================= */
 
 .memory-intro {
 
     min-height: 75vh;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
 
-    padding:
-        100px 25px;
+    padding: 100px 25px;
 
     background:
         linear-gradient(
@@ -414,30 +290,23 @@ body {
             #fff1e8,
             #fff6ef
         );
-
 }
-
 
 .memory-content {
 
     max-width: 650px;
-
 }
-
 
 .vertical-line {
 
     width: 1px;
-
     height: 75px;
 
     background: #c9a497;
 
     margin:
         0 auto 45px;
-
 }
-
 
 .memory-content h2 {
 
@@ -448,9 +317,7 @@ body {
     color: #7b4938;
 
     margin-bottom: 25px;
-
 }
-
 
 .memory-description {
 
@@ -465,9 +332,7 @@ body {
     line-height: 1.9;
 
     color: #80675e;
-
 }
-
 
 .scroll-arrow {
 
@@ -483,9 +348,7 @@ body {
         arrowMove 2s
         ease-in-out
         infinite;
-
 }
-
 
 @keyframes arrowMove {
 
@@ -503,9 +366,9 @@ body {
 }
 
 
-/* =================================
-   GALLERY
-================================= */
+/* =========================
+   GALERI
+========================= */
 
 .gallery-section {
 
@@ -513,9 +376,7 @@ body {
         120px 20px 150px;
 
     background: #fff8f0;
-
 }
-
 
 .gallery-title {
 
@@ -525,9 +386,7 @@ body {
 
     margin:
         0 auto 70px;
-
 }
-
 
 .gallery-title h2 {
 
@@ -536,13 +395,7 @@ body {
     font-weight: normal;
 
     color: #7b4938;
-
 }
-
-
-/* =================================
-   FOTO
-================================= */
 
 .photo-card {
 
@@ -551,6 +404,8 @@ body {
     overflow: hidden;
 
     max-width: 1000px;
+
+    height: 620px;
 
     margin:
         0 auto 45px;
@@ -567,30 +422,11 @@ body {
             40,
             0.13
         );
-
-    border-radius: 4px;
-
 }
-
-
-.photo-large {
-
-    height: 620px;
-
-}
-
-
-.photo-wide {
-
-    height: 500px;
-
-}
-
 
 .photo-card img {
 
     width: 100%;
-
     height: 100%;
 
     display: block;
@@ -598,23 +434,14 @@ body {
     object-fit: cover;
 
     transition:
-        transform 0.8s
-        ease;
-
+        transform 0.8s ease;
 }
-
 
 .photo-card:hover img {
 
     transform:
         scale(1.05);
-
 }
-
-
-/* =================================
-   PHOTO OVERLAY
-================================= */
 
 .photo-overlay {
 
@@ -639,9 +466,7 @@ body {
                 0.8
             )
         );
-
 }
-
 
 .photo-overlay span {
 
@@ -652,9 +477,7 @@ body {
     letter-spacing: 3px;
 
     opacity: 0.75;
-
 }
-
 
 .photo-overlay p {
 
@@ -663,22 +486,14 @@ body {
     font-size: 14px;
 
     margin-top: 7px;
-
 }
-
-
-/* =================================
-   END GALERI
-================================= */
 
 .gallery-ending {
 
     text-align: center;
 
     padding-top: 30px;
-
 }
-
 
 .gallery-ending p {
 
@@ -689,9 +504,7 @@ body {
     line-height: 1.8;
 
     color: #80675e;
-
 }
-
 
 .gallery-ending span {
 
@@ -700,26 +513,24 @@ body {
     margin-top: 25px;
 
     font-size: 25px;
-
 }
 
 
-/* =================================
+/* =========================
    LIGHTBOX
-================================= */
+========================= */
 
-.lightbox {
+#lightbox {
 
     position: fixed;
 
     inset: 0;
 
-    z-index: 2000;
+    z-index: 200000;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 30px;
@@ -736,45 +547,38 @@ body {
 
     visibility: hidden;
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    pointer-events: none;
 
+    transition:
+        opacity 0.3s ease;
 }
 
-
-.lightbox.active {
+#lightbox.active {
 
     opacity: 1;
 
     visibility: visible;
 
+    pointer-events: auto;
 }
 
-
-.lightbox img {
+#lightbox img {
 
     max-width: 90vw;
 
     max-height: 85vh;
 
     object-fit: contain;
-
-    border-radius: 4px;
-
 }
 
-
-.close-lightbox {
+#closeLightbox {
 
     position: absolute;
 
     top: 20px;
-
     right: 25px;
 
     width: 50px;
-
     height: 50px;
 
     border: none;
@@ -794,96 +598,62 @@ body {
     font-size: 35px;
 
     cursor: pointer;
-
 }
 
 
-/* =================================
-   MOBILE
-================================= */
+/* =========================
+   HP
+========================= */
 
 @media (max-width: 600px) {
 
-    .opening-small {
+    .opening-title {
 
         font-size: 10px;
 
         letter-spacing: 3px;
-
     }
 
+    #heartButton {
 
-    .heart-button {
+        width: 120px;
+        height: 120px;
 
-        width: 110px;
-
-        height: 110px;
-
-        font-size: 65px;
-
+        font-size: 68px;
     }
-
 
     .message {
 
         padding:
             80px 20px;
-
     }
-
 
     .message-box {
 
         padding:
             45px 25px;
-
     }
-
 
     .message h1 {
 
         font-size: 32px;
-
     }
-
 
     .memory-content h2 {
 
         font-size: 32px;
-
     }
-
 
     .gallery-title h2 {
 
         font-size: 32px;
-
     }
 
-
-    .photo-large {
+    .photo-card {
 
         height: 430px;
 
         margin-bottom: 20px;
-
-    }
-
-
-    .photo-wide {
-
-        height: 400px;
-
-        margin-bottom: 20px;
-
-    }
-
-
-    .photo-overlay {
-
-        padding:
-            80px 22px 22px;
-
     }
 
 }
