@@ -8,71 +8,101 @@
     <title>Untuk Mama ❤️</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 </head>
 
 <body>
 
+    <!-- ========================= -->
     <!-- HALAMAN PEMBUKA -->
-    <section class="hero">
+    <!-- ========================= -->
 
-        <div class="hero-content">
+    <section class="opening" id="opening">
 
-            <p class="small-text">SEBUAH PESAN KECIL UNTUK</p>
+        <div class="opening-content">
 
-            <h1>Mama ❤️</h1>
-
-            <p class="subtitle">
-                Di hari yang istimewa ini,<br>
-                ada sesuatu yang ingin kusampaikan.
+            <p class="opening-small">
+                SEBUAH PESAN KECIL UNTUK
             </p>
 
-            <button onclick="bukaPesan()">
-                Buka Pesan 💌
-            </button>
+            <div class="heart-button" id="heartButton">
+                ❤️
+            </div>
+
+            <h1>Mama</h1>
+
+            <p class="click-text">
+                Sentuh hati ini ❤️
+            </p>
 
         </div>
 
     </section>
 
 
-    <!-- BAGIAN PESAN -->
+    <!-- TEMPAT LOVE BERGUGURAN -->
+
+    <div id="hearts-container"></div>
+
+
+    <!-- ========================= -->
+    <!-- PESAN -->
+    <!-- ========================= -->
+
     <section class="message" id="message">
 
         <div class="message-box">
 
-            <p class="small-text">SELAMAT ULANG TAHUN</p>
+            <p class="small-text">
+                SELAMAT ULANG TAHUN
+            </p>
 
             <h2>Untuk Mama Tercinta</h2>
 
-            <p>
-                Selamat ulang tahun, Mama.
-            </p>
+            <div class="message-text">
 
-            <p>
-                Terima kasih untuk setiap doa, perhatian,
-                kesabaran, dan kasih sayang yang Mama berikan
-                setiap hari.
-            </p>
+                <p>
+                    Selamat ulang tahun, Mama.
+                </p>
 
-            <p>
-                Mungkin aku tidak selalu bisa mengungkapkan
-                semuanya dengan kata-kata, tapi aku sangat
-                bersyukur memiliki Mama.
-            </p>
+                <p>
+                    Terima kasih untuk setiap doa, perhatian,
+                    kesabaran, dan kasih sayang yang Mama berikan
+                    setiap hari.
+                </p>
 
-            <p>
-                Semoga Mama selalu diberikan kesehatan,
-                kebahagiaan, umur yang panjang, dan selalu
-                dikelilingi orang-orang yang menyayangi Mama.
-            </p>
+                <p>
+                    Mungkin aku tidak selalu bisa mengungkapkan
+                    semuanya dengan kata-kata, tapi aku sangat
+                    bersyukur memiliki Mama.
+                </p>
 
-            <p class="closing">
-                Aku sayang Mama ❤️
-            </p>
+                <p>
+                    Semoga Mama selalu diberikan kesehatan,
+                    kebahagiaan, umur yang panjang, dan selalu
+                    dikelilingi orang-orang yang menyayangi Mama.
+                </p>
+
+                <p class="closing">
+                    Aku sayang Mama ❤️
+                </p>
+
+            </div>
 
         </div>
 
     </section>
+
+
+    <!-- ========================= -->
+    <!-- AUDIO -->
+    <!-- ========================= -->
+
+    <audio id="backsound" loop>
+        <source src="backsound.mp3" type="audio/mpeg">
+    </audio>
 
 
     <footer>
@@ -83,5 +113,4 @@
     <script src="script.js"></script>
 
 </body>
-
 </html>
