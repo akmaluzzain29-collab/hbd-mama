@@ -12,14 +12,15 @@ body {
     font-family: Georgia, serif;
     background: #fff8f0;
     color: #4a3028;
+    overflow-x: hidden;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* ========================= */
+/* OPENING */
+/* ========================= */
 
-.hero {
+.opening {
     min-height: 100vh;
 
     display: flex;
@@ -28,22 +29,176 @@ body {
 
     text-align: center;
 
-    padding: 30px;
-
     background:
-        radial-gradient(circle at top, #ffe7d1, #fff8f0 60%);
+        radial-gradient(
+            circle at center,
+            #ffe9dc 0%,
+            #fff4ec 45%,
+            #fff8f0 100%
+        );
+
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-content {
-    max-width: 700px;
 
-    animation: muncul 1.5s ease;
+.opening-content {
+    position: relative;
+    z-index: 5;
 }
 
-.small-text {
+
+.opening-small {
     font-family: Arial, sans-serif;
 
     font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #a8755c;
+
+    margin-bottom: 35px;
+}
+
+
+.opening h1 {
+    font-size: clamp(55px, 10vw, 100px);
+
+    font-weight: normal;
+
+    color: #7b4938;
+
+    margin-top: 20px;
+}
+
+
+.click-text {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #9b7567;
+
+    margin-top: 25px;
+
+    opacity: 0.8;
+}
+
+
+/* ========================= */
+/* TOMBOL HATI */
+/* ========================= */
+
+.heart-button {
+
+    width: 130px;
+    height: 130px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 75px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(0 15px 25px rgba(160, 80, 60, 0.25));
+
+    transition: transform 0.2s ease;
+}
+
+
+/* ========================= */
+/* LOVE BERGUGURAN */
+/* ========================= */
+
+#hearts-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+
+.falling-heart {
+
+    position: absolute;
+
+    top: -60px;
+
+    font-size: 20px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* ========================= */
+/* MESSAGE */
+/* ========================= */
+
+.message {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8f0,
+            #fff1e8
+        );
+}
+
+
+.message-box {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    padding: 65px 55px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 80px rgba(90, 50, 40, 0.13);
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: translateY(80px) scale(0.95);
+}
+
+
+.small-text {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
     letter-spacing: 4px;
 
     color: #a8755c;
@@ -51,99 +206,21 @@ body {
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: clamp(60px, 12vw, 120px);
-
-    font-weight: normal;
-
-    color: #7b4938;
-
-    margin-bottom: 20px;
-}
-
-.subtitle {
-    font-family: Arial, sans-serif;
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    color: #76584d;
-
-    margin-bottom: 35px;
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-button {
-    border: none;
-
-    padding: 15px 30px;
-
-    border-radius: 50px;
-
-    background: #7b4938;
-
-    color: white;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: translateY(-3px);
-
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
-
-.message {
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 80px 20px;
-}
-
-.message-box {
-    max-width: 700px;
-
-    background: white;
-
-    padding: 60px 50px;
-
-    border-radius: 25px;
-
-    box-shadow: 0 20px 60px rgba(80, 50, 40, 0.12);
-
-    text-align: center;
-}
 
 h2 {
-    font-size: 40px;
+
+    font-size: 42px;
 
     font-weight: normal;
 
-    margin-bottom: 35px;
-
     color: #7b4938;
+
+    margin-bottom: 40px;
 }
 
-.message-box p:not(.small-text):not(.closing) {
+
+.message-text p {
+
     font-family: Arial, sans-serif;
 
     font-size: 16px;
@@ -152,26 +229,36 @@ h2 {
 
     color: #66514a;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+
+    opacity: 0;
 }
+
 
 .closing {
-    font-size: 24px;
 
-    color: #a15c4b;
+    font-family: Georgia, serif !important;
+
+    font-size: 25px !important;
+
+    color: #a15c4b !important;
 
     margin-top: 35px;
+
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
 footer {
+
     text-align: center;
 
     padding: 30px;
+
+    background: #fff1e8;
 
     font-family: Arial, sans-serif;
 
@@ -181,41 +268,33 @@ footer {
 }
 
 
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes muncul {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================
-   HP
-========================= */
+/* ========================= */
+/* MOBILE */
+/* ========================= */
 
 @media (max-width: 600px) {
 
+    .opening-small {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .heart-button {
+        width: 110px;
+        height: 110px;
+        font-size: 65px;
+    }
+
     .message-box {
-        padding: 40px 25px;
+        padding: 45px 25px;
     }
 
     h2 {
         font-size: 32px;
     }
 
-    .subtitle {
-        font-size: 16px;
+    .message-text p {
+        font-size: 15px;
     }
 
 }
