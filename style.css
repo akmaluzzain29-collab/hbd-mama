@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff8f0;
+    color: #4a3028;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at top, #ffe7d1, #fff8f0 60%);
+}
+
+.hero-content {
+    max-width: 700px;
+
+    animation: muncul 1.5s ease;
+}
+
+.small-text {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+    letter-spacing: 4px;
+
+    color: #a8755c;
+
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(60px, 12vw, 120px);
+
+    font-weight: normal;
+
+    color: #7b4938;
+
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #76584d;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: #7b4938;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 80px 20px;
+}
+
+.message-box {
+    max-width: 700px;
+
+    background: white;
+
+    padding: 60px 50px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 60px rgba(80, 50, 40, 0.12);
+
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+
+    font-weight: normal;
+
+    margin-bottom: 35px;
+
+    color: #7b4938;
+}
+
+.message-box p:not(.small-text):not(.closing) {
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: #66514a;
+
+    margin-bottom: 20px;
+}
+
+.closing {
+    font-size: 24px;
+
+    color: #a15c4b;
+
+    margin-top: 35px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #96796e;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   HP
+========================= */
+
+@media (max-width: 600px) {
+
+    .message-box {
+        padding: 40px 25px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+}
