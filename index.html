@@ -24,9 +24,15 @@
                 SEBUAH PESAN KECIL UNTUK
             </p>
 
-            <div class="heart-button" id="heartButton">
+            <button
+                class="heart-button"
+                id="heartButton"
+                type="button"
+                aria-label="Buka pesan">
+
                 ❤️
-            </div>
+
+            </button>
 
             <h1>Mama</h1>
 
@@ -39,12 +45,12 @@
     </section>
 
 
-    <!-- LOVE -->
+    <!-- FALLING HEARTS -->
 
     <div id="hearts-container"></div>
 
 
-    <!-- PESAN -->
+    <!-- MESSAGE -->
 
     <section class="message" id="message">
 
@@ -91,7 +97,7 @@
     </section>
 
 
-    <!-- GALERI -->
+    <!-- GALLERY -->
 
     <section class="gallery-section" id="gallery">
 
@@ -156,12 +162,18 @@
 
     <!-- LIGHTBOX -->
 
-    <div class="lightbox" id="lightbox">
+    <div
+        class="lightbox"
+        id="lightbox"
+        aria-hidden="true">
 
         <button
             class="close-lightbox"
-            id="closeLightbox">
+            id="closeLightbox"
+            type="button">
+
             ×
+
         </button>
 
         <img
