@@ -12,29 +12,23 @@
 
 <body>
 
-    <!-- =================================
+    <!-- =========================
          HALAMAN PEMBUKA
-    ================================== -->
+    ========================== -->
 
-    <section class="opening" id="opening">
+    <section id="opening">
 
         <div class="opening-content">
 
-            <p class="opening-small">
+            <p class="opening-title">
                 SEBUAH PESAN KECIL UNTUK
             </p>
 
-            <button
-                id="heartButton"
-                class="heart-button"
-                type="button"
-                aria-label="Buka pesan">
-
+            <button id="heartButton" type="button">
                 ❤️
-
             </button>
 
-            <p class="click-text">
+            <p class="opening-hint">
                 Sentuh hati ini
             </p>
 
@@ -43,17 +37,14 @@
     </section>
 
 
-    <!-- =================================
+    <!-- =========================
          ISI WEBSITE
-         AWALNYA DISEMBUNYIKAN
-    ================================== -->
+         AWALNYA TERSEMBUNYI
+    ========================== -->
 
-    <main id="mainContent" class="main-content">
+    <main id="mainContent" hidden>
 
-
-        <!-- =================================
-             PESAN
-        ================================== -->
+        <!-- PESAN -->
 
         <section class="message">
 
@@ -87,8 +78,9 @@
 
                     <p>
                         Semoga Mama selalu diberikan kesehatan,
-                        kebahagiaan, umur yang panjang, dan selalu
-                        dikelilingi orang-orang yang menyayangi Mama.
+                        kebahagiaan, umur yang panjang,
+                        dan selalu dikelilingi orang-orang
+                        yang menyayangi Mama.
                     </p>
 
                     <p class="closing">
@@ -102,9 +94,7 @@
         </section>
 
 
-        <!-- =================================
-             TRANSISI KENANGAN
-        ================================== -->
+        <!-- TENTANG KENANGAN -->
 
         <section class="memory-intro">
 
@@ -136,10 +126,7 @@
         </section>
 
 
-        <!-- =================================
-             GALERI
-             URUTAN TIDAK DIUBAH
-        ================================== -->
+        <!-- GALERI -->
 
         <section class="gallery-section">
 
@@ -156,9 +143,7 @@
             </div>
 
 
-            <!-- 01 Keluarga.png -->
-
-            <div class="photo-card photo-large">
+            <div class="photo-card">
 
                 <img
                     src="images/Keluarga.png"
@@ -177,9 +162,7 @@
             </div>
 
 
-            <!-- 02 mama abah.png -->
-
-            <div class="photo-card photo-wide">
+            <div class="photo-card">
 
                 <img
                     src="images/mama abah.png"
@@ -198,9 +181,7 @@
             </div>
 
 
-            <!-- 03 mama wisuda.png -->
-
-            <div class="photo-card photo-large">
+            <div class="photo-card">
 
                 <img
                     src="images/mama wisuda.png"
@@ -219,9 +200,7 @@
             </div>
 
 
-            <!-- 04 mama.png -->
-
-            <div class="photo-card photo-wide">
+            <div class="photo-card">
 
                 <img
                     src="images/mama.png"
@@ -255,47 +234,28 @@
 
         </section>
 
-
     </main>
 
 
-    <!-- =================================
-         LIGHTBOX
-    ================================== -->
+    <!-- =========================
+         LIGHTBOX FOTO
+    ========================== -->
 
-    <div
-        id="lightbox"
-        class="lightbox">
+    <div id="lightbox">
 
-        <button
-            id="closeLightbox"
-            class="close-lightbox"
-            type="button">
-
+        <button id="closeLightbox" type="button">
             ×
-
         </button>
 
-        <img
-            id="lightboxImage"
-            src=""
-            alt="Foto">
+        <img id="lightboxImage" src="" alt="Foto">
 
     </div>
 
 
-    <!-- =================================
-         MUSIK
-    ================================== -->
+    <!-- MUSIK -->
 
-    <audio
-        id="backsound"
-        loop>
-
-        <source
-            src="backsound.mp3"
-            type="audio/mpeg">
-
+    <audio id="backsound" loop>
+        <source src="backsound.mp3" type="audio/mpeg">
     </audio>
 
 
