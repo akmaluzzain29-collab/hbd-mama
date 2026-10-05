@@ -4,6 +4,205 @@ const heartButton =
 const opening =
     document.getElementById("opening");
 
+const mainContent =
+    document.getElementById("mainContent");
+
+const music =
+    document.getElementById("backsound");
+
+const photoCards =
+    document.querySelectorAll(".photo-card");
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const closeLightbox =
+    document.getElementById("closeLightbox");
+
+
+let sudahDibuka = false;
+
+
+/* =================================
+   TOMBOL HATI
+================================= */
+
+heartButton.addEventListener(
+    "click",
+    function () {
+
+        if (sudahDibuka) {
+            return;
+        }
+
+        sudahDibuka = true;
+
+
+        /* =========================
+           MUSIK
+        ========================== */
+
+        music.volume = 0.8;
+
+        music.play().catch(
+            function () {
+
+                console.log(
+                    "Browser menunggu izin musik."
+                );
+
+            }
+        );
+
+
+        /* =========================
+           BUKA ISI WEBSITE
+        ========================== */
+
+        mainContent.classList.add(
+            "visible"
+        );
+
+
+        /* =========================
+           HILANGKAN OPENING
+        ========================== */
+
+        opening.classList.add(
+            "opened"
+        );
+
+
+        /* =========================
+           AKTIFKAN SCROLL
+        ========================== */
+
+        document.body.style.overflowY =
+            "auto";
+
+
+        /* =========================
+           PINDAH KE PESAN
+        ========================== */
+
+        setTimeout(
+            function () {
+
+                document
+                    .querySelector(".message")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            },
+            500
+        );
+
+    }
+);
+
+
+/* =================================
+   AWAL WEBSITE
+   BENAR-BENAR TIDAK BISA SCROLL
+================================= */
+
+document.body.style.overflowY =
+    "hidden";
+
+
+/* =================================
+   FOTO → LIGHTBOX
+================================= */
+
+photoCards.forEach(
+    function (card) {
+
+        card.addEventListener(
+            "click",
+            function () {
+
+                const image =
+                    card.querySelector("img");
+
+                lightboxImage.src =
+                    image.src;
+
+                lightbox.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =================================
+   TUTUP LIGHTBOX
+================================= */
+
+closeLightbox.addEventListener(
+    "click",
+    function () {
+
+        lightbox.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+/* Klik area luar foto */
+
+lightbox.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target === lightbox
+        ) {
+
+            lightbox.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =================================
+   ESC
+================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            lightbox.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);const heartButton =
+    document.getElementById("heartButton");
+
+const opening =
+    document.getElementById("opening");
+
 const message =
     document.getElementById("message");
 
