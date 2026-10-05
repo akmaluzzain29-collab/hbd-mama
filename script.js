@@ -1,108 +1,81 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const heartButton =
-        document.getElementById("heartButton");
+    const heartButton = document.getElementById("heartButton");
+    const opening = document.getElementById("opening");
+    const mainContent = document.getElementById("mainContent");
+    const music = document.getElementById("backsound");
 
-    const opening =
-        document.getElementById("opening");
-
-    const mainContent =
-        document.getElementById("mainContent");
-
-    const music =
-        document.getElementById("backsound");
-
-    const photoCards =
-        document.querySelectorAll(".photo-card");
-
-    const lightbox =
-        document.getElementById("lightbox");
-
-    const lightboxImage =
-        document.getElementById("lightboxImage");
-
-    const closeLightbox =
-        document.getElementById("closeLightbox");
+    const photoCards = document.querySelectorAll(".photo-card");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
 
 
-    /*
-    ========================================
-    AWAL:
-    WEBSITE BENAR-BENAR TERKUNCI
-    ========================================
-    */
+    /* =========================
+       AWAL WEBSITE
+       TIDAK BISA SCROLL
+    ========================= */
 
     document.body.style.overflow = "hidden";
 
 
-    /*
-    ========================================
-    TOMBOL HATI
-    ========================================
-    */
+    /* =========================
+       TOMBOL HATI
+    ========================= */
 
     heartButton.onclick = function () {
 
         console.log("HATI DIKLIK");
 
-        /*
-        Tampilkan isi
-        */
+
+        /* Tampilkan isi website */
 
         mainContent.hidden = false;
 
 
-        /*
-        Hilangkan halaman pembuka
-        */
+        /* Hilangkan opening */
 
         opening.style.display = "none";
 
 
-        /*
-        Aktifkan scroll
-        */
+        /* Aktifkan scroll */
 
         document.body.style.overflow = "auto";
 
 
-        /*
-        Putar musik
-        */
+        /* Putar musik */
 
         music.volume = 0.8;
 
         music.play().catch(function () {
-            console.log(
-                "Musik tidak dapat autoplay."
-            );
+            console.log("Musik tidak dapat autoplay.");
         });
 
 
-        /*
-        Tunggu sebentar,
-        lalu pindah ke pesan
-        */
+        /* Pindah ke pesan */
 
         setTimeout(function () {
 
-            document
-                .querySelector(".message")
-                .scrollIntoView({
+            const message =
+                document.querySelector(".message");
+
+            if (message) {
+
+                message.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
+
+            }
 
         }, 100);
 
     };
 
 
-    /*
-    ========================================
-    FOTO
-    ========================================
-    */
+    /* =========================
+       FOTO → LIGHTBOX
+    ========================= */
 
     photoCards.forEach(function (card) {
 
@@ -111,67 +84,54 @@ document.addEventListener("DOMContentLoaded", function () {
             const image =
                 card.querySelector("img");
 
-            lightboxImage.src =
-                image.src;
+            if (!image) {
+                return;
+            }
 
-            lightbox.classList.add(
-                "active"
-            );
+            lightboxImage.src = image.src;
+
+            lightbox.classList.add("active");
 
         };
 
     });
 
 
-    /*
-    ========================================
-    TUTUP FOTO
-    ========================================
-    */
+    /* =========================
+       TUTUP LIGHTBOX
+    ========================= */
 
-    closeLightbox.onclick =
-        function () {
+    closeLightbox.onclick = function () {
 
-            lightbox.classList.remove(
-                "active"
-            );
+        lightbox.classList.remove("active");
 
-        };
+    };
 
 
-    lightbox.onclick =
-        function (event) {
+    /* Klik area luar foto */
 
-            if (
-                event.target === lightbox
-            ) {
+    lightbox.onclick = function (event) {
 
-                lightbox.classList.remove(
-                    "active"
-                );
+        if (event.target === lightbox) {
 
-            }
+            lightbox.classList.remove("active");
 
-        };
+        }
+
+    };
 
 
-    /*
-    ========================================
-    ESC
-    ========================================
-    */
+    /* =========================
+       ESC
+    ========================= */
 
     document.addEventListener(
         "keydown",
         function (event) {
 
-            if (
-                event.key === "Escape"
-            ) {
+            if (event.key === "Escape") {
 
-                lightbox.classList.remove(
-                    "active"
-                );
+                lightbox.classList.remove("active");
 
             }
 
