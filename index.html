@@ -8,15 +8,13 @@
     <title>Untuk Mama ❤️</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 </head>
 
 <body>
 
-    <!-- =========================
-         OPENING
-    ========================== -->
+    <!-- =================================
+         HALAMAN PEMBUKA
+    ================================== -->
 
     <section class="opening" id="opening">
 
@@ -27,8 +25,8 @@
             </p>
 
             <button
-                class="heart-button"
                 id="heartButton"
+                class="heart-button"
                 type="button"
                 aria-label="Buka pesan">
 
@@ -36,10 +34,8 @@
 
             </button>
 
-            <h1>Mama</h1>
-
             <p class="click-text">
-                Sentuh hati ini ❤️
+                Sentuh hati ini
             </p>
 
         </div>
@@ -47,238 +43,234 @@
     </section>
 
 
-    <!-- HEARTS -->
+    <!-- =================================
+         ISI WEBSITE
+         AWALNYA DISEMBUNYIKAN
+    ================================== -->
 
-    <div id="hearts-container"></div>
+    <main id="mainContent" class="main-content">
 
 
-    <!-- =========================
-         PESAN
-    ========================== -->
+        <!-- =================================
+             PESAN
+        ================================== -->
 
-    <section class="message" id="message">
+        <section class="message">
 
-        <div class="message-box">
+            <div class="message-box">
 
-            <p class="small-text">
-                SELAMAT ULANG TAHUN
-            </p>
-
-            <h2>
-                Untuk Mama Tercinta
-            </h2>
-
-            <div class="message-text">
-
-                <p>
-                    Selamat ulang tahun, Mama.
+                <p class="small-text">
+                    SELAMAT ULANG TAHUN
                 </p>
 
-                <p>
-                    Terima kasih untuk setiap doa, perhatian,
-                    kesabaran, dan kasih sayang yang Mama berikan
-                    setiap hari.
-                </p>
+                <h1>
+                    Untuk Mama Tercinta
+                </h1>
 
-                <p>
-                    Mungkin aku tidak selalu bisa mengungkapkan
-                    semuanya dengan kata-kata, tapi aku sangat
-                    bersyukur memiliki Mama.
-                </p>
+                <div class="message-text">
 
-                <p>
-                    Semoga Mama selalu diberikan kesehatan,
-                    kebahagiaan, umur yang panjang, dan selalu
-                    dikelilingi orang-orang yang menyayangi Mama.
-                </p>
+                    <p>
+                        Selamat ulang tahun, Mama.
+                    </p>
 
-                <p class="closing">
-                    Aku sayang Mama ❤️
-                </p>
+                    <p>
+                        Terima kasih untuk setiap doa,
+                        perhatian, kesabaran, dan kasih sayang
+                        yang Mama berikan setiap hari.
+                    </p>
+
+                    <p>
+                        Mungkin aku tidak selalu bisa
+                        mengungkapkan semuanya dengan kata-kata,
+                        tapi aku sangat bersyukur memiliki Mama.
+                    </p>
+
+                    <p>
+                        Semoga Mama selalu diberikan kesehatan,
+                        kebahagiaan, umur yang panjang, dan selalu
+                        dikelilingi orang-orang yang menyayangi Mama.
+                    </p>
+
+                    <p class="closing">
+                        Aku sayang Mama ❤️
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================
-         TRANSISI
-    ========================== -->
+        <!-- =================================
+             TRANSISI KENANGAN
+        ================================== -->
 
-    <section class="memory-intro">
+        <section class="memory-intro">
 
-        <div class="memory-intro-content">
+            <div class="memory-content">
 
-            <span class="memory-line"></span>
+                <div class="vertical-line"></div>
 
-            <p class="small-text">
-                SEBUAH CERITA KECIL
-            </p>
-
-            <h2>
-                Tentang Kenangan
-            </h2>
-
-            <p class="memory-description">
-                Ada begitu banyak momen yang mungkin sederhana,
-                tapi selalu punya tempat tersendiri untuk diingat.
-            </p>
-
-            <span class="scroll-hint">
-                ↓ &nbsp; lanjutkan perjalanan
-            </span>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         GALERI
-         URUTAN FOTO JANGAN DIUBAH
-    ========================== -->
-
-    <section class="gallery-section" id="gallery">
-
-        <div class="gallery-intro">
-
-            <p class="small-text">
-                KENANGAN YANG TERSIMPAN
-            </p>
-
-            <h2>
-                Beberapa Momen ❤️
-            </h2>
-
-        </div>
-
-
-        <!-- 01
-             Keluarga.png
-        -->
-
-        <div class="photo-large photo-card">
-
-            <img
-                src="images/Keluarga.png"
-                alt="Keluarga">
-
-            <div class="photo-caption">
-
-                <span>01</span>
-
-                <p>
-                    Keluarga.
+                <p class="small-text">
+                    SEBUAH CERITA KECIL
                 </p>
+
+                <h2>
+                    Tentang Kenangan
+                </h2>
+
+                <p class="memory-description">
+                    Ada begitu banyak momen sederhana
+                    yang mungkin terlihat biasa,
+                    tetapi selalu punya tempat tersendiri
+                    di dalam hati.
+                </p>
+
+                <div class="scroll-arrow">
+                    ↓
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- 02
-             mama abah.png
-        -->
+        <!-- =================================
+             GALERI
+             URUTAN TIDAK DIUBAH
+        ================================== -->
 
-        <div class="photo-small-wide photo-card">
+        <section class="gallery-section">
 
-            <img
-                src="images/mama abah.png"
-                alt="Mama dan Abah">
+            <div class="gallery-title">
 
-            <div class="photo-caption">
-
-                <span>02</span>
-
-                <p>
-                    Sebuah momen yang selalu berarti.
+                <p class="small-text">
+                    KENANGAN YANG TERSIMPAN
                 </p>
+
+                <h2>
+                    Beberapa Momen ❤️
+                </h2>
 
             </div>
 
-        </div>
 
+            <!-- 01 Keluarga.png -->
 
-        <!-- 03
-             mama wisuda.png
-        -->
+            <div class="photo-card photo-large">
 
-        <div class="photo-large photo-card">
+                <img
+                    src="images/Keluarga.png"
+                    alt="Keluarga">
 
-            <img
-                src="images/mama wisuda.png"
-                alt="Mama Wisuda">
+                <div class="photo-overlay">
 
-            <div class="photo-caption">
+                    <span>01</span>
 
-                <span>03</span>
+                    <p>
+                        Keluarga.
+                    </p>
 
-                <p>
-                    Salah satu perjalanan yang membanggakan.
-                </p>
+                </div>
 
             </div>
 
-        </div>
 
+            <!-- 02 mama abah.png -->
 
-        <!-- 04
-             mama.png
-        -->
+            <div class="photo-card photo-wide">
 
-        <div class="photo-small-wide photo-card">
+                <img
+                    src="images/mama abah.png"
+                    alt="Mama dan Abah">
 
-            <img
-                src="images/mama.png"
-                alt="Mama">
+                <div class="photo-overlay">
 
-            <div class="photo-caption">
+                    <span>02</span>
 
-                <span>04</span>
+                    <p>
+                        Sebuah momen yang selalu berarti.
+                    </p>
 
-                <p>
-                    Mama ❤️
-                </p>
+                </div>
 
             </div>
 
-        </div>
+
+            <!-- 03 mama wisuda.png -->
+
+            <div class="photo-card photo-large">
+
+                <img
+                    src="images/mama wisuda.png"
+                    alt="Mama Wisuda">
+
+                <div class="photo-overlay">
+
+                    <span>03</span>
+
+                    <p>
+                        Salah satu perjalanan yang membanggakan.
+                    </p>
+
+                </div>
+
+            </div>
 
 
-        <!-- ENDING GALERI -->
+            <!-- 04 mama.png -->
 
-        <div class="gallery-ending">
+            <div class="photo-card photo-wide">
 
-            <p>
-                Dan masih banyak cerita
-                yang belum sempat terabadikan.
-            </p>
+                <img
+                    src="images/mama.png"
+                    alt="Mama">
 
-            <span>
-                ❤️
-            </span>
+                <div class="photo-overlay">
 
-        </div>
+                    <span>04</span>
 
-    </section>
+                    <p>
+                        Mama ❤️
+                    </p>
+
+                </div>
+
+            </div>
 
 
-    <!-- =========================
+            <div class="gallery-ending">
+
+                <p>
+                    Dan masih banyak cerita
+                    yang belum sempat terabadikan.
+                </p>
+
+                <span>
+                    ❤️
+                </span>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =================================
          LIGHTBOX
-    ========================== -->
+    ================================== -->
 
     <div
-        class="lightbox"
         id="lightbox"
-        aria-hidden="true">
+        class="lightbox">
 
         <button
-            class="close-lightbox"
             id="closeLightbox"
-            type="button"
-            aria-label="Tutup foto">
+            class="close-lightbox"
+            type="button">
 
             ×
 
@@ -292,9 +284,9 @@
     </div>
 
 
-    <!-- =========================
-         AUDIO
-    ========================== -->
+    <!-- =================================
+         MUSIK
+    ================================== -->
 
     <audio
         id="backsound"
@@ -305,15 +297,6 @@
             type="audio/mpeg">
 
     </audio>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        Dibuat dengan ❤️ untuk Mama
-
-    </footer>
 
 
     <script src="script.js"></script>
