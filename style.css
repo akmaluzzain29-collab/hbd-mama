@@ -1,4 +1,1326 @@
+/* ==================================================
+   RESET
+================================================== */
+
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Georgia, serif;
+
+    background: #fff8f0;
+
+    color: #4a3028;
+
+    overflow-x: hidden;
+}
+
+
+/* ==================================================
+   OPENING
+================================================== */
+
+#intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffe9dc 0%,
+            #fff4ec 45%,
+            #fff8f0 100%
+        );
+
+    z-index: 99999;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   COUNTDOWN
+================================================== */
+
+.countdown {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: clamp(
+        110px,
+        22vw,
+        230px
+    );
+
+    font-weight: 300;
+
+    color: #7b4938;
+
+    opacity: 1;
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+}
+
+
+.countdown.hide {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.35);
+}
+
+
+/* ==================================================
+   CELEBRATION EMOJI
+================================================== */
+
+.celebration {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.celebration.active {
+    opacity: 1;
+}
+
+
+.falling-emoji {
+
+    position: absolute;
+
+    top: -80px;
+
+    font-size:
+        clamp(20px, 3vw, 35px);
+
+    animation:
+        fallDown
+        linear
+        forwards;
+
+    pointer-events: none;
+
+}
+
+
+@keyframes fallDown {
+
+    0% {
+
+        transform:
+            translateY(-80px)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    90% {
+
+        opacity: 0.9;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(115vh)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ==================================================
+   UCAPAN
+================================================== */
+
+.birthday-text {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+.birthday-word {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 100%;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            45px,
+            8vw,
+            100px
+        );
+
+    color: #7b4938;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+.birthday-word.show {
+
+    visibility: visible;
+
+    animation:
+        wordAppear
+        1.3s
+        ease forwards;
+}
+
+
+.birthday-word.hide {
+
+    animation:
+        wordDisappear
+        1s
+        ease forwards;
+}
+
+
+@keyframes wordAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translateY(35px)
+            scale(0.9);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes wordDisappear {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+
+    }
+
+}
+
+
+/* ==================================================
+   ENVELOPE AREA
+================================================== */
+
+.envelope-area {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.envelope-area.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    animation:
+        envelopeAppear
+        1.3s
+        ease forwards;
+}
+
+
+@keyframes envelopeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            translateY(0);
+
+    }
+
+}
+
+
+/* ==================================================
+   TEKS ATAS AMPLOP
+================================================== */
+
+.envelope-title {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #a8755c;
+
+    margin-bottom: 30px;
+
+    padding: 0 20px;
+}
+
+
+/* ==================================================
+   AMPLOP
+================================================== */
+
+.envelope-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.envelope {
+
+    position: relative;
+
+    width: 270px;
+
+    height: 185px;
+
+    background: #d89c7c;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(
+            100,
+            50,
+            35,
+            0.25
+        );
+
+    transform:
+        translateY(0);
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.envelope:hover {
+
+    transform:
+        translateY(-5px);
+}
+
+
+/* BAGIAN DEPAN AMPLOP */
+
+.envelope-body {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e3aa8d,
+            #cc8c6c
+        );
+
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+
+/* LIPATAN AMPLOP */
+
+.envelope-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        135px solid transparent;
+
+    border-right:
+        135px solid transparent;
+
+    border-bottom:
+        100px solid #c78363;
+}
+
+
+.envelope-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        135px solid #e8b196;
+
+    border-right:
+        135px solid transparent;
+
+    border-bottom:
+        100px solid transparent;
+}
+
+
+/* BAGIAN ATAS AMPLOP */
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        135px solid transparent;
+
+    border-right:
+        135px solid transparent;
+
+    border-top:
+        100px solid #bc7659;
+
+    z-index: 4;
+}
+
+
+/* ==================================================
+   LOVE DI TENGAH AMPLOP
+================================================== */
+
+#heartButton {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 72px;
+    height: 72px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            248,
+            240,
+            0.95
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            80,
+            35,
+            25,
+            0.25
+        );
+
+    font-size: 39px;
+
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    outline: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+    touch-action:
+        manipulation;
+
+    animation:
+        heartPulse
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+#heartButton:hover {
+
+    animation: none;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.1);
+}
+
+
+#heartButton:active {
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.9);
+}
+
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.12);
+
+    }
+
+}
+
+
+/* ==================================================
+   TEKS BAWAH AMPLOP
+================================================== */
+
+.envelope-hint {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    color: #9b7567;
+
+    margin-top: 28px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ==================================================
+   MAIN
+================================================== */
+
+#mainContent[hidden] {
+
+    display: none !important;
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+.message {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        100px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8f0,
+            #fff1e8
+        );
+}
+
+
+.message-box {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    padding:
+        65px 55px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.92
+        );
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 80px
+        rgba(
+            90,
+            50,
+            40,
+            0.13
+        );
+
+    animation:
+        messageAppear
+        1.2s
+        ease;
+}
+
+
+@keyframes messageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.small-text {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #a8755c;
+
+    margin-bottom: 20px;
+}
+
+
+.message h1 {
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    color: #7b4938;
+
+    margin-bottom: 40px;
+}
+
+
+.message-text p {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: #66514a;
+
+    margin-bottom: 22px;
+}
+
+
+.closing {
+
+    font-family:
+        Georgia,
+        serif !important;
+
+    font-size: 25px !important;
+
+    color: #a15c4b !important;
+
+    margin-top: 35px;
+}
+
+
+/* ==================================================
+   KENANGAN
+================================================== */
+
+.memory-intro {
+
+    min-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        100px 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff1e8,
+            #fff6ef
+        );
+}
+
+
+.memory-content {
+
+    max-width: 650px;
+}
+
+
+.vertical-line {
+
+    width: 1px;
+
+    height: 75px;
+
+    background: #c9a497;
+
+    margin:
+        0 auto 45px;
+}
+
+
+.memory-content h2 {
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    color: #7b4938;
+
+    margin-bottom: 25px;
+}
+
+
+.memory-description {
+
+    max-width: 520px;
+
+    margin: auto;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: #80675e;
+}
+
+
+.scroll-arrow {
+
+    margin-top: 55px;
+
+    font-size: 24px;
+
+    color: #a8755c;
+
+    animation:
+        arrowMove
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(10px);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* ==================================================
+   GALERI
+================================================== */
+
+.gallery-section {
+
+    padding:
+        120px 20px 150px;
+
+    background:
+        #fff8f0;
+}
+
+
+.gallery-title {
+
+    text-align: center;
+
+    max-width: 800px;
+
+    margin:
+        0 auto 70px;
+}
+
+
+.gallery-title h2 {
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    color: #7b4938;
+}
+
+
+.photo-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    max-width: 1000px;
+
+    height: 620px;
+
+    margin:
+        0 auto 45px;
+
+    cursor: pointer;
+
+    background: #eee;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            80,
+            50,
+            40,
+            0.13
+        );
+}
+
+
+.photo-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform
+        0.8s ease;
+}
+
+
+.photo-card:hover img {
+
+    transform:
+        scale(1.05);
+}
+
+
+.photo-overlay {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding:
+        80px 35px 30px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(
+                25,
+                15,
+                10,
+                0.8
+            )
+        );
+}
+
+
+.photo-overlay span {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.75;
+}
+
+
+.photo-overlay p {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    margin-top: 7px;
+}
+
+
+.gallery-ending {
+
+    text-align: center;
+
+    padding-top: 30px;
+}
+
+
+.gallery-ending p {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color: #80675e;
+}
+
+
+.gallery-ending span {
+
+    display: block;
+
+    margin-top: 25px;
+
+    font-size: 25px;
+}
+
+
+/* ==================================================
+   LIGHTBOX
+================================================== */
+
+#lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        rgba(
+            25,
+            15,
+            10,
+            0.94
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity
+        0.3s ease;
+}
+
+
+#lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+#lightbox img {
+
+    max-width: 90vw;
+
+    max-height: 85vh;
+
+    object-fit: contain;
+}
+
+
+#closeLightbox {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 25px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    color: white;
+
+    font-size: 35px;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .envelope {
+
+        width: 240px;
+
+        height: 165px;
+    }
+
+
+    .envelope-body::before {
+
+        border-left-width:
+            120px;
+
+        border-right-width:
+            120px;
+
+        border-bottom-width:
+            90px;
+    }
+
+
+    .envelope-body::after {
+
+        border-left-width:
+            120px;
+
+        border-bottom-width:
+            90px;
+    }
+
+
+    .envelope-flap {
+
+        border-left-width:
+            120px;
+
+        border-right-width:
+            120px;
+
+        border-top-width:
+            90px;
+    }
+
+
+    #heartButton {
+
+        width: 65px;
+
+        height: 65px;
+
+        font-size: 35px;
+    }
+
+
+    .envelope-title {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .message {
+
+        padding:
+            80px 20px;
+    }
+
+
+    .message-box {
+
+        padding:
+            45px 25px;
+    }
+
+
+    .message h1 {
+
+        font-size: 32px;
+    }
+
+
+    .memory-content h2 {
+
+        font-size: 32px;
+    }
+
+
+    .gallery-title h2 {
+
+        font-size: 32px;
+    }
+
+
+    .photo-card {
+
+        height: 430px;
+
+        margin-bottom: 20px;
+    }
+
+}* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
