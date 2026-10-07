@@ -5,30 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Untuk Mama ❤️</title>
+    <title>Happy Birthday Mama ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         HALAMAN PEMBUKA
-    ========================== -->
+    <!-- ==================================================
+         OPENING
+    ================================================== -->
 
-    <section id="opening">
+    <section id="intro">
 
-        <div class="opening-content">
+        <!-- COUNTDOWN -->
 
-            <p class="opening-title">
-                SEBUAH PESAN KECIL UNTUK
+        <div id="countdown" class="countdown">
+            3
+        </div>
+
+
+        <!-- EMOJI BERGUGURAN -->
+
+        <div id="celebration" class="celebration"></div>
+
+
+        <!-- UCAPAN BERTAHAP -->
+
+        <div id="birthdayText" class="birthday-text">
+
+            <div id="wordHappy" class="birthday-word">
+                Happy
+            </div>
+
+            <div id="wordBirthday" class="birthday-word">
+                Birthday
+            </div>
+
+            <div id="wordTo" class="birthday-word">
+                To
+            </div>
+
+            <div id="wordMama" class="birthday-word">
+                Mama
+            </div>
+
+        </div>
+
+
+        <!-- AMplop -->
+
+        <div id="envelopeArea" class="envelope-area">
+
+            <p class="envelope-title">
+                SEBUAH PESAN KECIL UNTUK MAMA
             </p>
 
-            <button id="heartButton" type="button">
-                ❤️
-            </button>
 
-            <p class="opening-hint">
+            <div class="envelope-wrapper">
+
+                <!-- AMplop -->
+
+                <div class="envelope">
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-body"></div>
+
+
+                    <!-- LOVE ADALAH TOMBOL -->
+
+                    <button
+                        id="heartButton"
+                        type="button"
+                        aria-label="Buka pesan untuk Mama">
+
+                        ❤️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <p class="envelope-hint">
                 Sentuh hati ini
             </p>
 
@@ -37,12 +98,12 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ==================================================
          ISI WEBSITE
-         AWALNYA TERSEMBUNYI
-    ========================== -->
+    ================================================== -->
 
     <main id="mainContent" hidden>
+
 
         <!-- PESAN -->
 
@@ -51,11 +112,11 @@
             <div class="message-box">
 
                 <p class="small-text">
-                    SELAMAT ULANG TAHUN
+                    UNTUK MAMA TERCINTA
                 </p>
 
                 <h1>
-                    Untuk Mama Tercinta
+                    Selamat Ulang Tahun, Mama
                 </h1>
 
                 <div class="message-text">
@@ -94,7 +155,7 @@
         </section>
 
 
-        <!-- TENTANG KENANGAN -->
+        <!-- KENANGAN -->
 
         <section class="memory-intro">
 
@@ -137,11 +198,13 @@
                 </p>
 
                 <h2>
-                    Beberapa Momen ❤️
+                    Mama & Keluarga ❤️
                 </h2>
 
             </div>
 
+
+            <!-- FOTO 1 -->
 
             <div class="photo-card">
 
@@ -162,6 +225,8 @@
             </div>
 
 
+            <!-- FOTO 2 -->
+
             <div class="photo-card">
 
                 <img
@@ -181,6 +246,8 @@
             </div>
 
 
+            <!-- FOTO 3 -->
+
             <div class="photo-card">
 
                 <img
@@ -199,6 +266,8 @@
 
             </div>
 
+
+            <!-- FOTO 4 -->
 
             <div class="photo-card">
 
@@ -237,25 +306,38 @@
     </main>
 
 
-    <!-- =========================
-         LIGHTBOX FOTO
-    ========================== -->
+    <!-- ==================================================
+         LIGHTBOX
+    ================================================== -->
 
     <div id="lightbox">
 
-        <button id="closeLightbox" type="button">
+        <button
+            id="closeLightbox"
+            type="button">
+
             ×
+
         </button>
 
-        <img id="lightboxImage" src="" alt="Foto">
+        <img
+            id="lightboxImage"
+            src=""
+            alt="Foto Mama">
 
     </div>
 
 
     <!-- MUSIK -->
 
-    <audio id="backsound" loop>
-        <source src="backsound.mp3" type="audio/mpeg">
+    <audio
+        id="backsound"
+        loop>
+
+        <source
+            src="backsound.mp3"
+            type="audio/mpeg">
+
     </audio>
 
 
