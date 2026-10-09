@@ -3,244 +3,1105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun, Mama! ❤️</title>
 
-    <title>Untuk Mama ❤️</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600;700&family=Righteous&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffdee9 0%, #b5fffc 50%, #fccb90 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Lora', serif;
+            color: #4a4a4a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* BOKEH / SPARKLE BACKGROUND DECOR */
+        .bg-sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .sparkle-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+            animation: floatUp 12s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* DEKORASI MELAYANG SAMPING */
+        .side-decoration {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            pointer-events: none;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 36px;
+            opacity: 0.85;
+        }
+
+        .side-decoration.left { left: 20px; }
+        .side-decoration.right { right: 20px; }
+
+        .floating-item {
+            animation: floatSide 4s ease-in-out infinite alternate;
+        }
+
+        .floating-item:nth-child(2) { animation-delay: 1s; }
+        .floating-item:nth-child(3) { animation-delay: 2s; }
+        .floating-item:nth-child(4) { animation-delay: 3s; }
+
+        @keyframes floatSide {
+            0% { transform: translateY(0px) rotate(-10deg) scale(1); }
+            100% { transform: translateY(-20px) rotate(10deg) scale(1.1); }
+        }
+
+        /* COUNTDOWN SCREEN */
+        #countdown-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 235, 245, 0.95);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .countdown-bg-decor {
+            position: absolute;
+            font-size: 50px;
+            pointer-events: none;
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        .decor-1 { top: 12%; left: 15%; animation-delay: 0s; }
+        .decor-2 { top: 18%; right: 18%; animation-delay: 0.5s; }
+        .decor-3 { bottom: 18%; left: 20%; animation-delay: 1s; }
+        .decor-4 { bottom: 12%; right: 20%; animation-delay: 1.5s; }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9) rotate(-5deg); opacity: 0.6; }
+            100% { transform: scale(1.25) rotate(10deg); opacity: 1; }
+        }
+
+        .countdown-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #d81b60;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        #countdown-number {
+            font-family: 'Righteous', cursive;
+            font-size: 170px;
+            background: linear-gradient(45deg, #ff1744, #d81b60, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(216, 27, 96, 0.35));
+            animation: popZoom 1s ease infinite;
+            line-height: 1;
+        }
+
+        @keyframes popZoom {
+            0% { transform: scale(0.4); opacity: 0; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* WORD FLASH SCREEN */
+        #word-flash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 95;
+            pointer-events: none;
+        }
+
+        .flash-word {
+            font-family: 'Dancing Script', cursive;
+            font-size: 85px;
+            font-weight: 700;
+            color: #d81b60;
+            text-shadow: 0 5px 25px rgba(216, 27, 96, 0.4);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .flash-word.show {
+            opacity: 1;
+            transform: scale(1.15);
+        }
+
+        .flash-word.hide {
+            opacity: 0;
+            transform: scale(1.5);
+            filter: blur(10px);
+        }
+
+        /* Emoji Rain */
+        .emoji-rain {
+            position: fixed;
+            top: -50px;
+            font-size: 34px;
+            user-select: none;
+            pointer-events: none;
+            z-index: 85;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        /* ENVELOPE SCREEN DENGAN ANIMASI MUNCUL */
+        #envelope-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 90;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .envelope-text-top {
+            font-family: 'Dancing Script', cursive;
+            font-size: 40px;
+            color: #d81b60;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-35px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+        }
+
+        #envelope-screen.show-anim .envelope-text-top {
+            opacity: 1;
+            transform: translateY(0);
+            animation: bounceSoft 2s infinite alternate 1s;
+        }
+
+        .envelope-text-bottom {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #c2185b;
+            margin-top: 35px;
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 10px 24px;
+            border-radius: 25px;
+            box-shadow: 0 4px 18px rgba(216, 27, 96, 0.18);
+            opacity: 0;
+            transform: translateY(35px) scale(0.9);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+        }
+
+        #envelope-screen.show-anim .envelope-text-bottom {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: pulseGlow 1.5s infinite alternate 1.3s;
+        }
+
+        @keyframes bounceSoft {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 360px;
+            height: 250px;
+            background: #f8bbd0;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(216, 27, 96, 0.35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.3) translateY(100px) rotate(-10deg);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
+        }
+
+        .envelope-wrapper.show-anim {
+            opacity: 1;
+            transform: scale(1) translateY(0) rotate(0deg);
+            animation: floatEnvelope 3.5s ease-in-out infinite alternate 0.8s;
+        }
+
+        @keyframes floatEnvelope {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+            100% { transform: translateY(0) rotate(-1deg); }
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 180px solid transparent;
+            border-right: 180px solid transparent;
+            border-top: 135px solid #f48fb1;
+            transform-origin: top;
+            transition: transform 0.6s ease;
+            z-index: 3;
+        }
+
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 180px solid #f06292;
+            border-right: 180px solid #f06292;
+            border-bottom: 125px solid #ec407a;
+            border-radius: 0 0 16px 16px;
+            z-index: 2;
+        }
+
+        #heart-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background: #ffffff;
+            border: 4px solid #ff4081;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(216, 27, 96, 0.4);
+            animation: pulseHeart 1.3s infinite alternate;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.4s ease;
+        }
+
+        #heart-btn:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 12px 30px rgba(216, 27, 96, 0.6);
+        }
+
+        @keyframes pulseHeart {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            100% { transform: translate(-50%, -50%) scale(1.12); }
+        }
+
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 28px;
+            z-index: 200;
+            animation: explode 1.2s forwards ease-out;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), var(--dy)) scale(1.8) rotate(var(--rot));
+            }
+        }
+
+        /* HEADER UTAMA DALAM SURAT */
+        .main-header-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 46px;
+            color: #d81b60;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 15px rgba(216, 27, 96, 0.25);
+            line-height: 1.3;
+        }
+
+        /* SURAT UTAMA */
+        #letter-container {
+            max-width: 880px;
+            margin: 50px auto 80px auto;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(15px);
+            padding: 70px 55px;
+            border-radius: 32px;
+            box-shadow: 0 25px 60px rgba(216, 27, 96, 0.25), inset 0 0 20px rgba(255, 182, 193, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .letter-corner-decor {
+            position: absolute;
+            font-size: 45px;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .corner-tl { top: 20px; left: 25px; }
+        .corner-tr { top: 20px; right: 25px; }
+        .corner-bl { bottom: 20px; left: 25px; }
+        .corner-br { bottom: 20px; right: 25px; }
+
+        p {
+            margin-bottom: 26px;
+            font-size: 17.5px;
+            line-height: 1.9;
+            text-align: justify;
+            color: #444;
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 40px;
+            color: #d81b60;
+            text-align: center;
+            margin: 45px 0;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .heart-inline {
+            color: #e91e63;
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.25); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+
+        /* GALERI FOTO */
+        .photo-section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 38px;
+            color: #d81b60;
+            text-align: center;
+            margin: 60px 0 10px 0;
+            border-top: 2px dashed #f8bbd0;
+            padding-top: 40px;
+        }
+
+        .photo-section-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13.5px;
+            color: #888;
+            text-align: center;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .real-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 22px;
+            margin: 35px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .real-photo-card {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            border: 4px solid #ffffff;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            background-color: #ffe4e8;
+        }
+
+        .real-photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .real-photo-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 16px 35px rgba(216, 27, 96, 0.35);
+            z-index: 5;
+        }
+
+        .real-photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .real-photo-card::after {
+            content: "🔍 Klik untuk memperbesar";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(216, 27, 96, 0.82));
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            text-align: center;
+            padding: 18px 0 8px 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .real-photo-card:hover::after {
+            opacity: 1;
+        }
+
+        /* HADIAH SPESIAL & ANIMASI TULISAN MELAYANG */
+        .gift-section {
+            margin-top: 60px;
+            border-top: 2px dashed #f8bbd0;
+            padding-top: 45px;
+            text-align: center;
+        }
+
+        .gift-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 38px;
+            color: #d81b60;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: floatGiftTitle 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatGiftTitle {
+            0% {
+                transform: translateY(0px) rotate(-1deg);
+            }
+            100% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+
+        .gift-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .btn-download-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #ff4081, #d81b60);
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-download-video:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.5);
+        }
+
+        /* MODAL POPUP SAAT FOTO DIPENCET */
+        .photo-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .photo-modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border: 4px solid #ffffff;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            object-fit: contain;
+        }
+
+        .photo-modal.active .photo-modal-content {
+            transform: scale(1);
+        }
+
+        .photo-modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            transition: background 0.2s ease;
+        }
+
+        .photo-modal-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .side-decoration { display: none; }
+
+            #countdown-number { font-size: 130px; }
+            .flash-word { font-size: 58px; }
+
+            .envelope-text-top { font-size: 30px; }
+            .envelope-text-bottom { font-size: 15px; }
+
+            .main-header-title { font-size: 36px; }
+
+            #letter-container {
+                padding: 40px 22px;
+                margin: 20px 12px;
+            }
+
+            .highlight-text { font-size: 30px; }
+            p { font-size: 15.5px; }
+
+            .real-photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .envelope-wrapper {
+                width: 290px;
+                height: 200px;
+            }
+
+            .envelope-flap {
+                border-left-width: 145px;
+                border-right-width: 145px;
+                border-top-width: 110px;
+            }
+
+            .envelope-pocket {
+                border-left-width: 145px;
+                border-right-width: 145px;
+                border-bottom-width: 100px;
+            }
+
+            #heart-btn {
+                width: 80px;
+                height: 80px;
+                font-size: 42px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
+    <!-- MUSIK BACKSOUND -->
+    <audio id="bg-music" src="sanah helwa ummi.mp3" loop preload="auto"></audio>
 
-    <section id="intro">
+    <div class="bg-sparkles" id="bg-sparkles"></div>
 
-        <!-- BACKGROUND DECORATIONS -->
+    <div class="side-decoration left">
+        <div class="floating-item">🎈</div>
+        <div class="floating-item">✨</div>
+        <div class="floating-item">🎁</div>
+        <div class="floating-item">🌸</div>
+    </div>
+    <div class="side-decoration right">
+        <div class="floating-item">💖</div>
+        <div class="floating-item">🎉</div>
+        <div class="floating-item">✨</div>
+        <div class="floating-item">🎈</div>
+    </div>
 
-        <div class="party-decoration balloon balloon-1">🎈</div>
-        <div class="party-decoration balloon balloon-2">🎈</div>
-        <div class="party-decoration balloon balloon-3">🎈</div>
-        <div class="party-decoration balloon balloon-4">🎈</div>
+    <!-- 1. COUNTDOWN SCREEN -->
+    <div id="countdown-screen">
+        <div class="countdown-bg-decor decor-1">🎉</div>
+        <div class="countdown-bg-decor decor-2">✨</div>
+        <div class="countdown-bg-decor decor-3">🌸</div>
+        <div class="countdown-bg-decor decor-4">🎁</div>
 
-        <div class="party-decoration gift gift-1">🎁</div>
-        <div class="party-decoration gift gift-2">🎁</div>
+        <div class="countdown-title">Mulai dalam...</div>
+        <div id="countdown-number">3</div>
+    </div>
 
-        <div class="party-decoration cake-decoration">
-            🎂
+    <!-- 2. WORD FLASH SCREEN -->
+    <div id="word-flash-screen">
+        <div id="flash-text" class="flash-word"></div>
+    </div>
+
+    <!-- 3. ENVELOPE SCREEN -->
+    <div id="envelope-screen">
+        <div class="envelope-text-top">Sebuah pesan kecil untuk Mama ❤️</div>
+
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <button id="heart-btn" title="Klik untuk membuka pesan">❤️</button>
         </div>
 
-        <div class="party-decoration party-hat">
-            🥳
+        <div class="envelope-text-bottom">Sentuh hati ini ✨</div>
+    </div>
+
+    <!-- 4. ISINYA PESAN UNTUK MAMA -->
+    <div id="letter-container">
+        <div class="letter-corner-decor corner-tl">🌸</div>
+        <div class="letter-corner-decor corner-tr">✨</div>
+        <div class="letter-corner-decor corner-bl">✨</div>
+        <div class="letter-corner-decor corner-br">🌸</div>
+
+        <!-- HEADER TULISAN TEPAT DI ATAS PESAN -->
+        <div class="main-header-title reveal">
+            🎉 Selamat Ulang Tahun, Mama! ❤️ 🎉
         </div>
 
-        <div class="party-decoration ribbon ribbon-1">
-            🎀
+        <p class="reveal">
+            Hari ini mungkin terlihat seperti hari biasa, tapi bagi Akmal, hari ini adalah salah satu hari yang sangat berarti. Hari ketika seseorang yang begitu penting dalam hidup Akmal dilahirkan ke dunia.
+        </p>
+
+        <p class="reveal">
+            Mama, terima kasih untuk semua hal yang selama ini Mama lakukan. Terima kasih untuk setiap doa yang mungkin tidak pernah Akmal dengar, setiap perhatian kecil yang terkadang Akmal anggap biasa, setiap nasihat yang dulu mungkin terasa sederhana, tapi ternyata sangat berarti ketika Akmal mulai mengerti kehidupan.
+        </p>
+
+        <p class="reveal">
+            Terima kasih karena Mama selalu berusaha memberikan yang terbaik untuk keluarga. Bahkan ketika lelah, Mama tetap berusaha tersenyum. Bahkan ketika banyak hal yang harus dipikirkan, Mama tetap memikirkan Akmal terlebih dahulu.
+        </p>
+
+        <p class="reveal">
+            Mungkin Akmal tidak selalu bisa mengungkapkan rasa sayang Akmal dengan baik. Mungkin Akmal juga masih sering membuat Mama kesal, khawatir, atau kecewa. Ada banyak hal yang belum bisa Akmal balas, dan ada begitu banyak kebaikan Mama yang mungkin sampai kapan pun tidak akan pernah bisa Akmal gantikan.
+        </p>
+
+        <p class="reveal center-text">
+            Tapi satu hal yang Akmal ingin Mama tahu...
+        </p>
+
+        <div class="highlight-text reveal">
+            Akmal sangat bersyukur memiliki Mama. <span class="heart-inline">❤️</span>
         </div>
 
-        <div class="party-decoration ribbon ribbon-2">
-            🎀
+        <p class="reveal">
+            Bersyukur karena Allah memberikan kesempatan kepada Akmal untuk tumbuh bersama Mama, merasakan kasih sayang Mama, mendengar nasihat Mama, dan memiliki begitu banyak kenangan yang nantinya akan selalu Akmal bawa ke mana pun Akmal pergi.
+        </p>
+
+        <p class="reveal">
+            Mama, Akmal juga ingin meminta maaf untuk semua kesalahan Akmal. Untuk perkataan yang mungkin pernah menyakiti hati Mama, untuk sikap yang mungkin membuat Mama kecewa, untuk saat-saat ketika Akmal lebih banyak meminta daripada mengerti, dan untuk semua hal yang belum bisa Akmal lakukan dengan baik.
+        </p>
+
+        <p class="reveal">
+            Semoga di usia Mama yang baru ini, Allah selalu memberikan kesehatan, umur yang panjang dan penuh keberkahan, ketenangan hati, kebahagiaan, serta kemudahan dalam setiap urusan Mama.
+        </p>
+
+        <p class="reveal">
+            Semoga setiap lelah Mama menjadi pahala. Setiap air mata Mama diganti dengan kebahagiaan. Setiap doa yang Mama panjatkan untuk Akmal dikabulkan oleh Allah dengan cara yang paling indah.
+        </p>
+
+        <p class="reveal">
+            Akmal juga berdoa semoga suatu hari nanti Akmal bisa menjadi anak yang mampu membuat Mama bangga. Bukan hanya dengan pencapaian, tetapi juga dengan menjadi manusia yang baik, yang bisa menjaga nama baik keluarga, dan yang bisa memberikan kebahagiaan kepada Mama seperti kebahagiaan yang selama ini Mama berikan kepada Akmal.
+        </p>
+
+        <p class="reveal">
+            Kalau suatu hari nanti Akmal sudah semakin dewasa, mungkin hidup akan membawa Akmal ke tempat yang berbeda. Akan ada banyak hal berubah, banyak hal yang Akmal temui, dan mungkin Akmal tidak bisa selalu berada di dekat Mama.
+        </p>
+
+        <p class="reveal center-text">
+            Tapi semoga satu hal tidak pernah berubah:
+        </p>
+
+        <div class="highlight-text reveal">
+            rasa sayang Akmal kepada Mama.
         </div>
 
-        <div class="party-decoration star star-1">✦</div>
-        <div class="party-decoration star star-2">✧</div>
-        <div class="party-decoration star star-3">✦</div>
-        <div class="party-decoration star star-4">✧</div>
-        <div class="party-decoration star star-5">✦</div>
-        <div class="party-decoration star star-6">✧</div>
+        <p class="reveal center-text">
+            Terima kasih sudah menjadi tempat Akmal pulang.<br>
+            Terima kasih sudah menjadi salah satu alasan Akmal terus berusaha.<br>
+            Terima kasih untuk cinta yang tidak pernah meminta balasan.<br>
+            Dan terima kasih untuk semua hal yang mungkin tidak pernah sempat Akmal ucapkan.
+        </p>
 
-        <div class="confetti confetti-1"></div>
-        <div class="confetti confetti-2"></div>
-        <div class="confetti confetti-3"></div>
-        <div class="confetti confetti-4"></div>
-        <div class="confetti confetti-5"></div>
-        <div class="confetti confetti-6"></div>
-        <div class="confetti confetti-7"></div>
-        <div class="confetti confetti-8"></div>
-        <div class="confetti confetti-9"></div>
-        <div class="confetti confetti-10"></div>
-
-        <!-- GLOW -->
-
-        <div class="party-glow glow-left"></div>
-        <div class="party-glow glow-right"></div>
-        <div class="party-glow glow-bottom"></div>
-
-
-        <!-- COUNTDOWN -->
-
-        <div id="countdown">3</div>
-
-
-        <!-- FALLING EMOJIS -->
-
-        <div id="celebration"></div>
-
-
-        <!-- BIRTHDAY WORDS -->
-
-        <div id="birthdayText">
-
-            <div id="wordHappy" class="birthday-word">
-                Happy
-            </div>
-
-            <div id="wordBirthday" class="birthday-word">
-                Birthday
-            </div>
-
-            <div id="wordTo" class="birthday-word">
-                To
-            </div>
-
-            <div id="wordMama" class="birthday-word">
-                Mama
-            </div>
-
+        <div class="highlight-text reveal">
+            Selamat ulang tahun, Mama. <span class="heart-inline">❤️</span>
         </div>
 
+        <p class="reveal center-text">
+            Semoga Allah selalu menjaga Mama, di mana pun Mama berada dan dalam keadaan apa pun.<br><br>
+            Semoga hari-hari Mama ke depan dipenuhi lebih banyak senyum daripada air mata, lebih banyak kebahagiaan daripada kesedihan, dan lebih banyak ketenangan daripada kekhawatiran.
+        </p>
 
-        <!-- ENVELOPE -->
-
-        <div id="envelopeArea">
-
-            <div class="envelope-title">
-                SEBUAH PESAN KECIL UNTUK MAMA
-            </div>
-
-            <div class="envelope-wrapper">
-
-                <div class="envelope">
-
-                    <div class="envelope-body"></div>
-
-                    <div class="envelope-flap"></div>
-
-                    <button id="heartButton">
-                        ❤️
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="envelope-hint">
-                Sentuh hati ini
-            </div>
-
+        <div class="highlight-text reveal" style="margin-top: 40px; margin-bottom: 20px;">
+            Akmal sayang Mama.<br>
+            <small style="font-size: 22px; font-family: 'Lora', serif; color: #666;">Hari ini, besok, dan seterusnya. <span class="heart-inline">❤️</span></small>
         </div>
 
-    </section>
+        <!-- GALERI FOTO -->
+        <div class="photo-section-title reveal">Galeri Momen Indah Bersama Mama 📸</div>
+        <div class="photo-section-subtitle reveal">(Klik / sentuh foto untuk memperbesar)</div>
 
+         <div class="real-photo-grid reveal">
+            <div class="real-photo-card"><img src="01.png" alt="Foto 1" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="02.png" alt="Foto 2" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="03.png" alt="Foto 3" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="04.png" alt="Foto 4" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="05.png" alt="Foto 5" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="06.png" alt="Foto 6" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="07.png" alt="Foto 7" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="08.png" alt="Foto 8" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="09.png" alt="Foto 9" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="10.png" alt="Foto 10" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="11.png" alt="Foto 11" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="12.png" alt="Foto 12" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="13.png" alt="Foto 13" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="14.png" alt="Foto 14" onclick="openPhotoModal(this.src)"></div>
+            <div class="real-photo-card"><img src="15.png" alt="Foto 15" onclick="openPhotoModal(this.src)"></div>
+        </div>
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
+        <!-- SEKSI HADIAH SPESIAL & ANIMASI TULISAN MELAYANG -->
+        <div class="gift-section reveal">
+            <div class="gift-title">Hadiah Spesial untuk Mama dari Akmal ❤️</div>
+            <div class="gift-subtitle">Satu video kenangan indah yang dibuat khusus dengan penuh kasih sayang.</div>
 
-    <main id="mainContent" hidden>
-
-        <section class="message">
-
-            <div class="message-inner">
-
-                <h1>
-                    Selamat Ulang Tahun, Mama ❤️
-                </h1>
-
-                <p>
-                    Terima kasih untuk segala kasih sayang,
-                    doa, kesabaran, dan perjuangan Mama.
-                    Semoga Allah selalu memberikan kesehatan,
-                    kebahagiaan, umur yang penuh keberkahan,
-                    dan menjaga Mama di setiap langkah.
-                </p>
-
+            <!-- Pemutar Video Langsung -->
+            <div style="text-align: center; margin-top: 25px;">
+                <video controls width="100%" style="max-width: 550px; border-radius: 18px; border: 4px solid #ffffff; box-shadow: 0 12px 30px rgba(216, 27, 96, 0.25);">
+                    <source src="video_mama.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung pemutaran video.
+                </video>
             </div>
 
-        </section>
-
-
-        <section class="memory">
-
-            <h2>
-                Tentang Kenangan ✨
-            </h2>
-
-            <p>
-                Beberapa kenangan kecil yang selalu ingin
-                kami simpan dan ingat.
-            </p>
-
-
-            <div class="gallery">
-
-                <div class="photo-card">
-                    <img
-                        src="images/Keluarga.png"
-                        alt="Keluarga"
-                    >
-                </div>
-
-                <div class="photo-card">
-                    <img
-                        src="images/mama abah.png"
-                        alt="Mama dan Abah"
-                    >
-                </div>
-
-                <div class="photo-card">
-                    <img
-                        src="images/mama wisuda.png"
-                        alt="Mama Wisuda"
-                    >
-                </div>
-
-                <div class="photo-card">
-                    <img
-                        src="images/mama.png"
-                        alt="Mama"
-                    >
-                </div>
-
+            <!-- Tombol Simpan Video -->
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="video_mama.mp4" download="Video Spesial Untuk Mama.mp4" class="btn-download-video">
+                    📥 Simpan Video ke HP / Laptop
+                </a>
             </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         LIGHTBOX
-    ====================================================== -->
-
-    <div id="lightbox">
-
-        <button id="closeLightbox">
-            ×
-        </button>
-
-        <img
-            id="lightboxImage"
-            src=""
-            alt="Foto"
-        >
+        </div>
 
     </div>
 
+    <!-- POPUP MODAL UNTUK DILIHAT BESAR KETIKA FOTO DIPENCET -->
+    <div id="photo-modal" class="photo-modal" onclick="closePhotoModal()">
+        <span class="photo-modal-close">&times;</span>
+        <img id="modal-img" class="photo-modal-content" src="" alt="Foto Besar">
+    </div>
 
-    <!-- =====================================================
-         AUDIO
-    ====================================================== -->
+    <script>
+        const sparklesContainer = document.getElementById('bg-sparkles');
+        for (let i = 0; i < 20; i++) {
+            const circle = document.createElement('div');
+            circle.classList.add('sparkle-circle');
+            const size = Math.random() * 40 + 10;
+            circle.style.width = size + 'px';
+            circle.style.height = size + 'px';
+            circle.style.left = Math.random() * 100 + 'vw';
+            circle.style.animationDelay = (Math.random() * 10) + 's';
+            circle.style.animationDuration = (Math.random() * 8 + 8) + 's';
+            sparklesContainer.appendChild(circle);
+        }
 
-    <audio
-        id="backsound"
-        src="backsound.mp3"
-        loop>
-    </audio>
+        const bgMusic = document.getElementById('bg-music');
+        let musicPlaying = false;
 
+        function playMusic() {
+            if (!musicPlaying) {
+                bgMusic.play().then(() => {
+                    musicPlaying = true;
+                }).catch(e => {
+                    console.log("Autoplay diblokir browser, menunggu interaksi pengguna.");
+                });
+            }
+        }
 
-    <script src="script.js"></script>
+        // Pancing pemicu audio dari sentuhan/klik apa pun di layar sejak halaman dimuat
+        ['click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, () => {
+                playMusic();
+            }, { once: false });
+        });
 
+        // COUNTDOWN TIMER
+        let count = 3;
+        const countEl = document.getElementById('countdown-number');
+        const countdownScreen = document.getElementById('countdown-screen');
+
+        const timer = setInterval(() => {
+            count--;
+            if (count > 0) {
+                countEl.textContent = count;
+                countEl.style.animation = 'none';
+                countEl.offsetHeight;
+                countEl.style.animation = 'popZoom 1s ease infinite';
+            } else {
+                clearInterval(timer);
+                
+                // PENTING: Langsung putar musik tepat ketika countdown selesai
+                playMusic();
+
+                countdownScreen.style.opacity = '0';
+                countdownScreen.style.visibility = 'hidden';
+
+                startEmojiRain();
+                startWordFlashSequence();
+            }
+        }, 1000);
+
+        function startEmojiRain() {
+            const emojis = ['🎂', '🎉', '🎁', '🎈', '✨', '💖', '🌸', '🥳'];
+            setInterval(() => {
+                const emoji = document.createElement('div');
+                emoji.classList.add('emoji-rain');
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                document.body.appendChild(emoji);
+
+                setTimeout(() => {
+                    emoji.remove();
+                }, 6000);
+            }, 250);
+        }
+
+        const wordList = ["Happy", "Birthday", "to", "Mama ❤️"];
+        let wordIndex = 0;
+        const flashTextEl = document.getElementById('flash-text');
+        const envelopeScreen = document.getElementById('envelope-screen');
+        const envelope = document.getElementById('envelope');
+
+        function startWordFlashSequence() {
+            if (wordIndex < wordList.length) {
+                flashTextEl.textContent = wordList[wordIndex];
+                flashTextEl.className = 'flash-word show';
+
+                setTimeout(() => {
+                    flashTextEl.className = 'flash-word hide';
+                    
+                    setTimeout(() => {
+                        wordIndex++;
+                        startWordFlashSequence();
+                    }, 400);
+
+                }, 1200);
+            } else {
+                setTimeout(() => {
+                    envelopeScreen.style.visibility = 'visible';
+                    envelopeScreen.style.opacity = '1';
+                    
+                    envelopeScreen.classList.add('show-anim');
+                    envelope.classList.add('show-anim');
+                }, 300);
+            }
+        }
+
+        const heartBtn = document.getElementById('heart-btn');
+        const letterContainer = document.getElementById('letter-container');
+
+        heartBtn.addEventListener('click', (e) => {
+            // Pastikan lagu tetap main kalau seandainya tadi terhambat autoplay browser
+            playMusic();
+
+            const rect = heartBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            createHeartExplosion(centerX, centerY);
+
+            envelope.classList.add('open');
+            heartBtn.style.opacity = '0';
+            heartBtn.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+                envelopeScreen.style.opacity = '0';
+                setTimeout(() => {
+                    envelopeScreen.style.display = 'none';
+                    letterContainer.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        letterContainer.style.opacity = '1';
+                        initScrollReveal();
+                    }, 50);
+                }, 800);
+            }, 1000);
+        });
+
+        function createHeartExplosion(x, y) {
+            const particleCount = 50;
+            const heartIcons = ['❤️', '💖', '💕', '💗', '🌸', '✨'];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('heart-particle');
+                particle.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 240 + 90;
+                const dx = Math.cos(angle) * distance + 'px';
+                const dy = Math.sin(angle) * distance + 'px';
+                const rot = (Math.random() * 360) + 'deg';
+
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.setProperty('--dx', dx);
+                particle.style.setProperty('--dy', dy);
+                particle.style.setProperty('--rot', rot);
+
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 1200);
+            }
+        }
+
+        // FUNGSI POPUP FOTO
+        function openPhotoModal(src) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = src;
+            modal.classList.add('active');
+        }
+
+        function closePhotoModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.remove('active');
+        }
+
+        function initScrollReveal() {
+            function reveal() {
+                const reveals = document.querySelectorAll('.reveal');
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 80;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add('active');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', reveal);
+            reveal();
+        }
+    </script>
 </body>
 </html>
